@@ -16,7 +16,7 @@ public class FabricanteController : Controller
         repositorioFabricante =
             new RepositorioFabricanteEmArquivo(contexto);
     }
-    // GET: FabricanteController
+    [HttpGet]
     public ActionResult Listar()
     {
         List<Fabricante> fabricantes = repositorioFabricante.SelecionarTodos();
@@ -25,7 +25,7 @@ public class FabricanteController : Controller
     }
 
 
-    //MVC
+    [HttpGet]
     public ActionResult Cadastrar()
     {
         return View();
@@ -37,6 +37,54 @@ public class FabricanteController : Controller
         Fabricante novoFabricante = new Fabricante(nome, email, telefone);
 
         repositorioFabricante.Cadastrar(novoFabricante);
+
+        return RedirectToAction(nameof(Listar));
+    }
+
+    [HttpGet]
+    public ActionResult Editar(string id)
+    {
+        Fabricante? fabricante = repositorioFabricante.SelecionarPorId(id);
+
+        if (fabricante == null)
+            return RedirectToAction(nameof(Listar));
+
+        return View(fabricante);
+    }
+
+    [HttpPost]
+    public ActionResult Editar(string id, string nome, string email, string telefone)
+    {
+        Fabricante fabricanteAtualuzado = new Fabricante(nome, email, telefone);
+
+        repositorioFabricante.Editar(id, fabricanteAtualuzado);
+
+        return RedirectToAction(nameof(Listar));
+    }
+
+    [HttpGet]
+    public ActionResult Excluir(string id)
+    {
+        Fabricante? fabricante = repositorioFabricante.SelecionarPorId(id);
+
+        if (fabricante == null)
+            return RedirectToAction(nameof(Listar));
+
+
+        return View(fabricante);
+    }
+
+    [HttpPost]
+    [ActionName("Excluir")]
+    public ActionResult ExcluirConfirmado(string id)
+    {
+        Fabricante? fabricante = repositorioFabricante.SelecionarPorId(id);
+
+        if (fabricante == null)
+            return RedirectToAction(nameof(Listar));
+
+        repositorioFabricante.Excluir(fabricante);
+
 
         return RedirectToAction(nameof(Listar));
     }
