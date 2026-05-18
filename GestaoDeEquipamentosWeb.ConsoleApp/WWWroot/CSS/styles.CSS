@@ -1,0 +1,93 @@
+:root {
+    font-size: 16px;
+}
+
+html,
+body {
+    height: 100%;
+}
+
+
+body {
+    font-family: "Google Sans", sans-serif;
+
+    background-image: linear-gradient(120deg, #e0c3fc 0%, #8ec5fc 100%);
+
+    /* basico */
+    display: flex;
+    flex-direction: column;
+
+    /* basico */
+    margin: 0 auto;
+    max-width: 1200px;
+}
+
+nav {
+
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+
+.links-navbar {
+    display: flex;
+    gap: 20px;
+
+    margin-left: auto;
+}
+
+.links-navbar>a {
+    color: black;
+    text-decoration: none;
+}
+
+.btn-cad {
+    display: inline-block;
+
+    border: 1px solid rgba(151, 35, 245, 0.637);
+    border-radius: 100vmax;
+
+    color: rgba(151, 35, 245, 0.637);
+    font-weight: 600;
+
+    padding: 8px 22px;
+
+    text-decoration: none;
+
+    margin: 17px 0px;
+}
+
+.registros {
+    width: 100%;
+    min-width: 720px;
+}
+
+.registros th,
+.registros td {
+    padding: 16px 18px;
+    color: rgb (55, 44, 59);
+    text-align: left;
+    vertical-align: middle;
+}
+
+.registros th {
+    background-color: rgb(152, 62, 209, 0.14);
+    color: rgb(129, 46, 181);
+    font-size: 0.85rem;
+    font-weight: 800;
+    text-transform: uppercase;
+}
+
+.registros tbody tr {
+    background-color: rgba(255, 255, 255, 0.45);
+}
+
+.registros a {
+    border: 1px solid rgba(152, 62, 209, 0.45);
+    border-radius: 100vmax;
+    color: rgb(129, 46, 181);
+    font-size: 0, 9rem;
+    font-weight: 600;
+    padding: 7px 16px;
+    text-decoration: none;
+}
