@@ -1,6 +1,7 @@
-﻿@using GestaoDeEquipamentosWeb.ConsoleApp.ModuloFabricante
+﻿@using GestaoDeEquipamentosWeb.ConsoleApp.Models
+@using GestaoDeEquipamentosWeb.ConsoleApp.ModuloFabricante
 
-@model List<Fabricante>;
+@model List<ListarFabricantesViewModel>;
 
 @{
     Layout = "_Layout";
@@ -23,7 +24,7 @@
 
     
     <tbody>
-        @foreach (Fabricante f in Model)
+        @foreach (ListarFabricantesViewModel f in Model)
         {
             <tr>
                 <td>@f.Id</td>
