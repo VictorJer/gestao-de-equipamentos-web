@@ -49,9 +49,13 @@ public class FabricanteController : Controller
     }
 
     [HttpPost]
-    public ActionResult Cadastrar(string nome, string email, string telefone)
+    public ActionResult Cadastrar(CadastrarFabricanteViewModel cadastrarVm)
     {
-        Fabricante novoFabricante = new Fabricante(nome, email, telefone);
+        Fabricante novoFabricante = new Fabricante(
+            cadastrarVm.Nome,
+            cadastrarVm.Email,
+            cadastrarVm.Telefone
+            );
 
         repositorioFabricante.Cadastrar(novoFabricante);
 

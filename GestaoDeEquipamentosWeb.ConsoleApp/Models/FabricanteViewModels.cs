@@ -1,3 +1,14 @@
 namespace GestaoDeEquipamentosWeb.ConsoleApp.Models;
 
-public record ListarFabricantesViewModel(string Id, string Nome, string Email, string Telefone);
+public record ListarFabricantesViewModel(
+    string Id,
+    string Nome,
+    string Email,
+    string Telefone
+    );
+
+public record CadastrarFabricanteViewModel(
+    string Nome,
+    string Email,
+    string Telefone
+    );
